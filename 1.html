@@ -69,14 +69,14 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 #btnFire:active,#btnFire.active{background:rgba(0,255,100,0.3) !important;border-color:#00ff66 !important;}
 
 #pauseBtn{
- width:clamp(44px,12vw,60px);height:clamp(44px,12vw,60px);
- border-radius:50%;border:2px solid rgba(255,255,255,0.3);
- background:rgba(255,255,255,0.08);color:#fff;
- font-size:clamp(1.2rem,5vw,1.8rem);
+ width:clamp(60px,18vw,100px);height:clamp(60px,18vw,100px);
+ border-radius:50%;border:2px solid rgba(255,255,255,0.4);
+ background:rgba(255,255,255,0.1);color:#fff;
+ font-size:clamp(1.5rem,6vw,2.5rem);
  display:none;align-items:center;justify-content:center;
- position:absolute;bottom:clamp(80px,20vw,120px);left:50%;transform:translateX(-50%);z-index:6;
- -webkit-tap-highlight-color:transparent;
+ transition:background 0.1s;-webkit-tap-highlight-color:transparent;
 }
+#pauseBtn:active,#pauseBtn.active{background:rgba(255,255,255,0.3);border-color:#fff;}
 
 #waveAnim{
  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -106,11 +106,10 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 <button class="btn" id="restartBtn">↻ REINTENTAR</button>
 </div>
 
-<div id="pauseBtn">⏸</div>
-
 <div id="controls">
 <div class="ctrl-group">
 <button class="ctrl-btn" id="btnFire">🔥</button>
+<button class="ctrl-btn" id="pauseBtn">⏸</button>
 </div>
 <div class="ctrl-group">
 <button class="ctrl-btn" id="btnLeft">◀</button>
@@ -761,24 +760,27 @@ function draw(){
   ctx.shadowBlur=0;
  });
 
- // HUD - SCORE + LEVEL stacked
+ // HUD - SCORE + LEVEL
  ctx.shadowBlur=0;
 
- const hudPad=8*scale;
- const lineH=18*scale;
- const hudW=Math.min(160*scale,W*0.5);
+ const hudPad=10*scale;
+ const lineH=26*scale;
+ const fontSize=20*scale;
+ const lvlSize=16*scale;
+ const hudW=Math.min(240*scale,W*0.6);
  const hudH=lineH*2+hudPad*2;
 
  ctx.fillStyle="rgba(0,0,0,0.6)";
  ctx.fillRect(0,0,hudW,hudH);
 
  ctx.textBaseline="middle";
+ ctx.textAlign="left";
 
- ctx.font=`bold ${13*scale}px 'Courier New',monospace`;
+ ctx.font=`bold ${fontSize}px 'Courier New',monospace`;
  ctx.fillStyle="#00ffff";
  ctx.fillText(`SCORE: ${score}`,hudPad,hudPad+lineH/2);
 
- ctx.font=`bold ${11*scale}px 'Courier New',monospace`;
+ ctx.font=`bold ${lvlSize}px 'Courier New',monospace`;
  ctx.fillStyle="#ff88ff";
  ctx.fillText(`LEVEL: ${level}`,hudPad,hudPad+lineH+lineH/2);
 
