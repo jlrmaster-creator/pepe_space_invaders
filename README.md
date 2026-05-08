@@ -9,8 +9,8 @@ Abre [`1.html`](1.html) en tu navegador y pulsa **JUGAR**.
 ### Controles táctiles (móvil)
 | Botón | Acción |
 |-------|--------|
-| ◀ ▶ | Moverse izquierda / derecha |
-| 🔥 | Disparar |
+| 🔥 (izquierda) | Disparar |
+| ◀ ▶ (derecha) | Moverse izquierda / derecha |
 | ⏸ | Pausar |
 | Tocar la pantalla | Auto-disparo continuo |
 
@@ -23,7 +23,8 @@ Abre [`1.html`](1.html) en tu navegador y pulsa **JUGAR**.
 
 ## 🧬 Mecánicas
 
-- **Enemigos** con resistencia variable (1-5 impactos)
+- **Enemigos** con resistencia variable (1-5 impactos) y disparos esquivables con cooldown
+- **Avatar Pepe 🐸** — aparece ocasionalmente bajando por la pantalla. Requiere **3 impactos** para destruirlo. Otorga bonus de puntos + explosión especial
 - **Dificultad progresiva**: más enemigos, más rápidos y más resistentes con cada nivel
 - **Jefes** grandes que aparecen aleatoriamente
 - **Sistema de puntuación** con niveles (subir de nivel al alcanzar cierto score)
@@ -42,6 +43,7 @@ Abre [`1.html`](1.html) en tu navegador y pulsa **JUGAR**.
 ```
 pepe_space_invaders/
 ├── 1.html          # Juego completo
+├── pepe.png        # Avatar de Pepe
 └── README.md       # Este archivo
 ```
 
