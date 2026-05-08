@@ -4,7 +4,7 @@ Un arcade espacial tipo *Space Invaders* con temática Pepe, desarrollado con HT
 
 ## 🎮 Cómo jugar
 
-Abre [`1.html`](1.html) en tu navegador y pulsa **JUGAR**.
+Abre [`index.html`](index.html) en tu navegador y pulsa **JUGAR**.
 
 ### Controles táctiles (móvil)
 | Botón | Acción |
@@ -42,7 +42,7 @@ Abre [`1.html`](1.html) en tu navegador y pulsa **JUGAR**.
 
 ```
 pepe_space_invaders/
-├── 1.html          # Juego completo
+├── index.html      # Juego completo
 ├── pepe.png        # Avatar de Pepe
 └── README.md       # Este archivo
 ```
