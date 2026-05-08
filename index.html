@@ -118,7 +118,18 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 </div>
 
 <script>
-// v2.0 - cache-busting enabled
+// ─── CACHE BUSTER ───
+(function(){
+ const v="3.1";
+ try{
+  if(localStorage.getItem("pi_v")!==v){
+   localStorage.setItem("pi_v",v);
+   window.location.reload(true);
+   return;
+  }
+ }catch(e){}
+})();
+
 const canvas=document.getElementById("gc");
 const ctx=canvas.getContext("2d");
 
