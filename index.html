@@ -120,7 +120,7 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 <script>
 // ─── CACHE BUSTER ───
 (function(){
- const v="3.1";
+ const v="3.2";
  try{
   if(localStorage.getItem("pi_v")!==v){
    localStorage.setItem("pi_v",v);
@@ -671,9 +671,8 @@ function draw(){
   ctx.shadowBlur=20*scale;
 
   // Image
-  if(pepeImg.complete && pepeImg.naturalWidth>0){
-   ctx.drawImage(pepeImg,ax,ay,aw,ah);
-  }else{
+  if(pepeImg && pepeImg.complete && pepeImg.naturalWidth>0){
+   try{ctx.drawImage(pepeImg,ax,ay,aw,ah);}catch(e){}
    ctx.fillStyle="#ff00aa";
    ctx.font=`${16*scale}px Arial`;
    ctx.textAlign="center";
@@ -806,8 +805,13 @@ function draw(){
 // ─── LOOP ───
 function loop(){
  if(!gameRunning) return;
- if(!gamePaused) update();
- draw();
+ try{
+  if(!gamePaused) update();
+  draw();
+ }catch(e){
+  console.error(e);
+  // Don't kill the loop
+ }
  requestAnimationFrame(loop);
 }
 
