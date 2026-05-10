@@ -97,23 +97,23 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 <div id="menu">
 <h1>PEPE INVADERS</h1>
 <div class="subtitle">- SPACE ARCADE v2 -</div>
-<button class="btn" id="playBtn">JUGAR</button>
+<button class="btn" id="playBtn">▶ JUGAR</button>
 </div>
 
 <div id="gameOver">
 <h1>GAME OVER</h1>
 <p id="finalScore"></p>
-<button class="btn" id="restartBtn">REINTENTAR</button>
+<button class="btn" id="restartBtn">↻ REINTENTAR</button>
 </div>
 
 <div id="controls">
 <div class="ctrl-group">
-<button class="ctrl-btn" id="btnFire">F</button>
-<button class="ctrl-btn" id="pauseBtn">P</button>
+<button class="ctrl-btn" id="btnFire">🔥</button>
+<button class="ctrl-btn" id="pauseBtn">⏸</button>
 </div>
 <div class="ctrl-group">
-<button class="ctrl-btn" id="btnLeft"><</button>
-<button class="ctrl-btn" id="btnRight">></button>
+<button class="ctrl-btn" id="btnLeft">◀</button>
+<button class="ctrl-btn" id="btnRight">▶</button>
 </div>
 </div>
 
@@ -157,7 +157,7 @@ let pepeAvatar=null;
 let pepeSpawnTimer=0;
 
 function init(){
- player={x:W/2-25*scale,y:H-80,w:50*scale,h:28*scale,speed:5*scale,hp:4,maxHp:4};
+ player={x:W/2-25*scale,y:H-170,w:50*scale,h:28*scale,speed:5*scale,hp:4,maxHp:4};
  enemies=[];
  bullets=[];
  enemyBullets=[];
@@ -293,7 +293,7 @@ document.getElementById("pauseBtn").addEventListener("touchstart",e=>{e.preventD
 function togglePause(){
  if(!gameRunning||gameOver) return;
  gamePaused=!gamePaused;
- document.getElementById("pauseBtn").textContent=gamePaused?">":"P";
+ document.getElementById("pauseBtn").textContent=gamePaused?"▶":"⏸";
 }
 
 let touchFire=false;
@@ -315,11 +315,11 @@ function startGame(){
  gameOver=false;
  gamePaused=false;
  if(!player) init();
- player={x:W/2-25*scale,y:H-80,w:50*scale,h:28*scale,speed:5*scale,hp:4,maxHp:4};
+ player={x:W/2-25*scale,y:H-170,w:50*scale,h:28*scale,speed:5*scale,hp:4,maxHp:4};
  enemies=[];bullets=[];enemyBullets=[];particles=[];
  score=0;level=1;frame=0;nextLevelAt=100+80;
  pepeAvatar=null;pepeSpawnTimer=0;
- document.getElementById("pauseBtn").textContent="P";
+  document.getElementById("pauseBtn").textContent="⏸";
  loop();
 }
 document.getElementById("playBtn").addEventListener("click",startGame);
