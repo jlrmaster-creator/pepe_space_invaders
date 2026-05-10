@@ -648,10 +648,6 @@ function draw(){
 
   if(pepeImg && pepeImg.complete && pepeImg.naturalWidth>0){
    try{ctx.drawImage(pepeImg,ax,ay,aw,ah);}catch(e){}
-   ctx.fillStyle="#ff00aa";
-   ctx.font=(16*scale)+"px Arial";
-   ctx.textAlign="center";
-   ctx.fillText("rana",ax+aw/2,ay+ah/2+5*scale);
   }
 
   ctx.shadowBlur=0;
